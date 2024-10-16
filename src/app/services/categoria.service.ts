@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class CategoriaService {
   constructor(private _http: HttpClient) {}
 
-  // ESTRUCTURAR LOS SERVICIO
+  // ESTRUCTURAR LOS SERVICIO PARA LLAMAR LOS ENPIOINT
   public findAllCategorias() {
     const requestUrl = `${environment.api}${endpoint.LIST_CATEGORIAS}`;
     return this._http.get(requestUrl);
