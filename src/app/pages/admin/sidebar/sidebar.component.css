@@ -1,0 +1,13 @@
+button[mat-list-item] {
+    display: flex; /* Alinea los elementos en una fila */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    padding: 8px 16px; /* Ajusta el espaciado interno si es necesario */
+    text-align: left; /* Alinea el texto a la izquierda */
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+    margin-top: 5px;
+}
+
+mat-icon[mat-list-icon] {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+    margin-bottom: -5px;
+}

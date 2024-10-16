@@ -1,0 +1,46 @@
+<h1 class="mt20"> Preguntas de {{ titulo }}</h1>
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12" >
+            <div class="container text-rigth">
+                <button color="primary" mat-raised-button [routerLink]="'/admin/add-questions/'+examenId+'/'+titulo">
+                    Agregar Preguntas
+                </button>
+            </div>
+            <mat-card *ngFor="let ques of questions; let i = index" class="mt20">
+                <mat-card-content>
+                    <p>
+                        <b>{{ i + 1 }}. </b>
+                        <b><span [innerHTML]="ques.contenido" class="ml20"></span></b>
+                    </p>
+                    <div class="container-fluid"><br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>1. {{ ques.opcion1 }}</p><br>
+                            </div>
+                            <div class="col-md-6">
+                                <p>2. {{ ques.opcion2 }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p>3. {{ ques.opcion3 }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p>4. {{ ques.opcion4 }}</p><br>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                        <p class="mt20">
+                            Respuesta Correcta :<b> {{ ques.respuesta }}</b>
+                        </p>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions class="ml20">
+                    <button  mat-stroked-button color="warn" (click)="deleteQuestions(ques.preguntaId)">Eliminar</button>
+                    <button class="ml20" mat-stroked-button [routerLink]="'/admin/update-question/'+ques.preguntaId" color="primary">Actualixar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

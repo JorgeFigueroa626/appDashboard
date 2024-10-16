@@ -1,0 +1,56 @@
+<mat-card>
+    <div mat-subheader >
+        <h1>Detalles del Usuario</h1>
+    </div>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+                <div class="text-center">
+                    <img src="../../../assets/img/usuario.png" class="profile-img" alt="">
+                    <h1 class="mt20">PEFIL DE USUARIO</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center">
+                            <tr>
+                                <th>ID</th>
+                                <td>{{ user.usuarioId }}</td>
+                            </tr>
+                            <tr>
+                                <th>NOMBRE Y APELLIDO</th>
+                                <td>{{ user.nombre + " " + user.apellido}}</td>
+                            </tr>
+                            <tr>
+                                <th>USERNAME</th>
+                                <td>{{ user.username }}</td>
+                            </tr>
+                            <tr>
+                                <th>PASSWORD</th>
+                                <td>{{ user.password }}</td>
+                            </tr>
+                            <tr>
+                                <th>CORREO</th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th>TELEFONO</th>
+                                <td>{{ user.telefono }}</td>
+                            </tr>
+                            <tr>
+                                <th>ROL</th>
+                                <td>{{ user.authorities[0].authority }}</td>
+                            </tr>
+                            <tr>
+                                <th>ESTADO</th>
+                                <td>{{ user.state ? "ACTIVO" : "NO ACTIVO" }} </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <mat-card-actions class="text-center">
+            <button mat-raised-button color="primary">Actualizar</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>

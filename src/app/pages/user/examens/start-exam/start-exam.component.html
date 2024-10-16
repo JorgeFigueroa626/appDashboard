@@ -1,0 +1,98 @@
+<div class="bootstrap-wrapper" *ngIf="!isSending">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Instrucciones -->
+            <div class="col-md-2">
+                <mat-card style="margin-top: 70px;">
+                <mat-card-content  >
+                    <h3><b>Intrucciones</b></h3>
+                    <ul>
+                        <li>No actualize la pagina, de lo contrario tendra nuevas preguntas</li><br>
+                        <li>No cambie la pestaña</li><br>
+                        <li>No minimice la venta</li><br>
+                    </ul>
+                </mat-card-content>
+                </mat-card>
+            </div>
+
+            <div class="col-md-8">
+                <!-- Preguntas -->
+                <ng-container *ngIf="questions">
+                    <h1 class="mt20">
+                        En curso <b>{{ questions[0].examen.titulo }}</b>
+                    </h1>
+                </ng-container>
+
+                <mat-card *ngFor="let item of questions; let i = index">
+                    <mat-card-content>
+                        <p><b>{{ i+1 }}.) </b><span [innerHTML]="item.contenido"></span></p>
+                        <mat-divider></mat-divider>
+
+                        <div class="row mt20">
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="item.respuestaDada" type="radio" name={{i}} [value]="item.opcion1"> {{ item.opcion1 }}
+                            </div>
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="item.respuestaDada" type="radio" name={{i}} [value]="item.opcion2"> {{ item.opcion2 }}
+                            </div>
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="item.respuestaDada" type="radio" name={{i}} [value]="item.opcion3"> {{ item.opcion3 }}
+                            </div>
+                            <div class="col-md-7 mt10">
+                                <input [(ngModel)]="item.respuestaDada" type="radio" name={{i}} [value]="item.opcion4"> {{ item.opcion4 }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6"></div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+
+                <div class="container text-center mt20 mb20">
+                    <button (click)="sendQuestion()" mat-raised-button color="primary">Enviar cuestionario</button>
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <!-- Progress -->
+                 <mat-card style="margin-top: 70px;">
+                    <mat-card-header>
+                        <mat-card-title>
+                            Temporizador
+                        </mat-card-title>
+                        <mat-card-subtitle>
+                            Tiempo restante del examen
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <h1 class="text-center">{{ getFormattedTime() }}</h1>
+                        <mat-spinner mode="determinate" style="margin: auto;" [value]="(tiempo/(this.questions.length * 2 * 60)*100)"></mat-spinner>
+                    </mat-card-content>
+                 </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bootstrap-wrapper" *ngIf="isSending">
+    <div class="container mt20">
+        <div class="col-md-6 offset-md-3">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Resultado de la prueba
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="text-center">
+                    <h1>Puntos consegidos : {{ puntosConseguidos }}</h1>
+                    <h1>Respuestas correctas : {{ respuestaCorrectas }}</h1>
+                </mat-card-content>
+                <mat-card-actions class="text-center mt20 mb20" style="justify-content: center;">
+                    <button mat-raised-button color="primary" (click)="printPage()"  class="mr10">Imprimir</button>
+                    <button mat-raised-button [routerLink]="'/user-dashboard/0'" color="accent">Inicio</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
