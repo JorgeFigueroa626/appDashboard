@@ -14,6 +14,7 @@ export class UsuarioService {
     private _http: HttpClient
   ) { }
 
+  // ESTRUCTURAR LOS SERVICIO PARA LLAMAR LOS ENPIOINT
   public registrarUsuario(usuario: any): Observable<any>{
     const requestUrl = `${environment.api}${endpoint.USUARIO_REGISTER}`;
     return this._http.post(requestUrl, usuario);
