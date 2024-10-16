@@ -11,6 +11,7 @@ export class ExamenesService {
 
   constructor(private _http: HttpClient) { }
 
+  // METODOS DE SERVICIOS
   public finAllExamenes(){
     const requestUrl = `${environment.api}${endpoint.LIST_EXAMENES}`;
     return this._http.get(requestUrl);
