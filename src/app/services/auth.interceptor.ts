@@ -28,7 +28,8 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 }
 
-//lo exportamos y injectamos en el modulo principal, lo ingresamos en el provider
+//lo exportamos y injectamos en el modulo principal, 
+//lo ingresamos en el provider
 export const authInterceptorProviders = [
   {
     provide: HTTP_INTERCEPTORS,
