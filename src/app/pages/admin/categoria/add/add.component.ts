@@ -41,7 +41,7 @@ export class AddComponent implements OnInit{
         this.categoria.titulo = '',
         this.categoria.descripcion = '',
         Swal.fire('Categoria Agregada', 'Categoria guarda con exito', 'success'),
-        this._router.navigate(['/admin/add-contegorias']);
+        this._router.navigateByUrl('admin/categorias');
       },
       (error) => {
         console.log(error);

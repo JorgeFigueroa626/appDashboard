@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
 
-  public loginStatusSubjec = new Subject<boolean>();
+  public loginStatusSubject = new Subject<boolean>();
 
   constructor(private _http: HttpClient, private _router:Router) { }
 

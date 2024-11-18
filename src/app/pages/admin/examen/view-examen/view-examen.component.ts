@@ -30,7 +30,7 @@ export class ViewExamenComponent implements OnInit{
 
 
   ngOnInit(): void {
-    this.examenes = this._examenService.finAllExamenes().subscribe(
+    this._examenService.finAllExamenes().subscribe(
       (data: any) => {
         this.examenes = data
         console.log(data);

@@ -10,15 +10,15 @@ import Swal from 'sweetalert2';
 })
 export class ViewComponent implements OnInit{
 
-  categorias:any=[] ;
+  categorias:any[]=[];
 
   constructor(
-    private _categoriaService: CategoriaService,
+    private _categoryService: CategoriaService,
     private _snackBar: MatSnackBar,
   ){}
 
   ngOnInit(): void {
-    this.categorias = this._categoriaService.findAllCategorias().subscribe(
+    this._categoryService.findAllCategorias().subscribe(
       (data:any)=>{
         this.categorias = data
         console.log(data);
